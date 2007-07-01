@@ -1,27 +1,25 @@
 Name:           libgnome-java
 Version:        2.12.7
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Summary:        Java bindings for libgnome
 License:        LGPL
-Group:          Development/Java
+Group:          System/Libraries
 URL:            http://java-gnome.sourceforge.net
 Source0:        http://fr2.rpmfind.net/linux/gnome.org/sources/libgnome-java/2.12/libgnome-java-%{version}.tar.bz2
 Source1:        http://fr2.rpmfind.net/linux/gnome.org/sources/libgnome-java/2.12/libgnome-java-2.12.7.changes
 Source2:        http://fr2.rpmfind.net/linux/gnome.org/sources/libgnome-java/2.12/libgnome-java-2.12.7.md5sum
 Source3:        http://fr2.rpmfind.net/linux/gnome.org/sources/libgnome-java/2.12/libgnome-java-2.12.7.news
 Source4:        java-gnome-macros.tar.bz2
-Requires:       libgnome2
-Requires:       libgtk-java
 BuildRequires:  docbook-utils
 BuildRequires:  docbook-dtd30-sgml
 BuildRequires:  java-devel >= 0:1.4.2
 BuildRequires:  jpackage-utils
 BuildRequires:  libgnome2-devel
-BuildRequires:  gcc-java >= 0:4.0.1
+BuildRequires:  java-gcj-compat-devel
 BuildRequires:  libgnomecanvas2-devel
 BuildRequires:  libgnomeui2-devel
-BuildRequires:  libgtk-java >= 0:2.10.2
+BuildRequires:  libgtk-java-devel >= 0:2.10.2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -29,13 +27,13 @@ libgnome-java is a language binding that allows developers to write
 GNOME applications in Java.  It is part of Java-GNOME.
 
 %package        devel
-Summary:        Compressed Java source files for %{name}
+Summary:        Development files for %{name}
 Group:          Development/Java
 Requires:       %{name} = %{epoch}:%{version}-%{release}
+Conflicts:      libgnome-java < 2.12.7-2
 
 %description    devel
-Compressed Java source for %{name}. This is useful if you are developing
-applications with IDEs like Eclipse.
+Development files for %{name}.
 
 %prep
 %setup -q
@@ -51,6 +49,8 @@ export JAVA=%{java}
 export JAVAC=%{javac}
 export JAR=%{jar}
 export JAVADOC=%{javadoc}
+export GCJ=%{gcj}
+export CPPFLAGS="-I%{java_home}/include -I%{java_home}/include/linux"
 %{configure2_5x} --with-jardir=%{_javadir}
 %{make}
 
@@ -84,14 +84,16 @@ popd
 
 %files
 %defattr(-,root,root)
-%doc doc/api AUTHORS COPYING NEWS README doc/tutorial
-%{_libdir}/*so*
-%{_libdir}/*la
-%{_libdir}/pkgconfig/*
+%doc AUTHORS COPYING NEWS README
+%{_libdir}/libgnomejava-*.so
+%{_libdir}/libgnomejni-*.so
 %{_javadir}/*.jar
 
 %files devel
 %defattr(-,root,root)
+%doc doc/api doc/tutorial
 %{_javadir}/*.zip
-
-
+%{_libdir}/libgnomejava.so
+%{_libdir}/libgnomejni.so
+%{_libdir}/*la
+%{_libdir}/pkgconfig/*
