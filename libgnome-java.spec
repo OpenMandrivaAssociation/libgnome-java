@@ -1,6 +1,6 @@
 Name:           libgnome-java
 Version:        2.12.7
-Release:        %mkrel 2
+Release:        %mkrel 3
 Epoch:          0
 Summary:        Java bindings for libgnome
 License:        LGPL
@@ -14,7 +14,7 @@ Source4:        java-gnome-macros.tar.bz2
 BuildRequires:  docbook-utils
 BuildRequires:  docbook-dtd30-sgml
 BuildRequires:  java-devel >= 0:1.4.2
-BuildRequires:  jpackage-utils
+BuildRequires:  java-rpmbuild
 BuildRequires:  libgnome2-devel
 BuildRequires:  java-gcj-compat-devel
 BuildRequires:  libgnomecanvas2-devel
