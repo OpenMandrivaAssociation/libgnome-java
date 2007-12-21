@@ -20,6 +20,7 @@ BuildRequires:  java-gcj-compat-devel
 BuildRequires:  libgnomecanvas2-devel
 BuildRequires:  libgnomeui2-devel
 BuildRequires:  libgtk-java-devel >= 0:2.10.2
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 libgnome-java is a language binding that allows developers to write
