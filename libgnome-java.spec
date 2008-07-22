@@ -1,6 +1,6 @@
 Name:           libgnome-java
 Version:        2.12.7
-Release:        %mkrel 3
+Release:        %mkrel 5
 Epoch:          0
 Summary:        Java bindings for libgnome
 License:        LGPL
