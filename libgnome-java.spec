@@ -1,6 +1,8 @@
+%define _disable_ld_no_undefined 1
+
 Name:           libgnome-java
 Version:        2.12.7
-Release:        %mkrel 5
+Release:        %mkrel 5.0.1
 Epoch:          0
 Summary:        Java bindings for libgnome
 License:        LGPL
@@ -47,6 +49,7 @@ Development files for %{name}.
 export CLASSPATH=
 export JAVA=%{java}
 export JAVAC=%{javac}
+export JAVAH=%{_jvmdir}/java-rpmbuild/bin/javah
 export JAR=%{jar}
 export JAVADOC=%{javadoc}
 export GCJ=%{gcj}
