@@ -98,7 +98,7 @@ popd
 
 %files devel
 %defattr(-,root,root)
-%doc doc/api doc/tutorial
+%doc %{_docdir}/%{name}-%{version}
 %{_javadir}/*.zip
 %{_libdir}/libgnomejava.so
 %{_libdir}/libgnomejni.so
