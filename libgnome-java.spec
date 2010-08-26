@@ -1,8 +1,6 @@
-%define _disable_ld_no_undefined 1
-
 Name:           libgnome-java
 Version:        2.12.7
-Release:        %mkrel 5.0.3
+Release:        %mkrel 5.0.4
 Epoch:          0
 Summary:        Java bindings for libgnome
 License:        LGPL
