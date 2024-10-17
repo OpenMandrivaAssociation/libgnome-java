@@ -5,7 +5,7 @@ Epoch:          0
 Summary:        Java bindings for libgnome
 License:        LGPL
 Group:          System/Libraries
-URL:            http://java-gnome.sourceforge.net
+URL:            https://java-gnome.sourceforge.net
 Source0:        http://fr2.rpmfind.net/linux/gnome.org/sources/libgnome-java/2.12/libgnome-java-%{version}.tar.bz2
 Source1:        http://fr2.rpmfind.net/linux/gnome.org/sources/libgnome-java/2.12/libgnome-java-2.12.7.changes
 Source2:        http://fr2.rpmfind.net/linux/gnome.org/sources/libgnome-java/2.12/libgnome-java-2.12.7.md5sum
